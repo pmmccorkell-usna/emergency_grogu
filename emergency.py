@@ -44,13 +44,13 @@ def check_emergency(topic,message):
 	if (message.decode()=='1'):
 		kill_it_all()
 
-ada_topic = {
-	'pmmccorkell/feeds/emergency-button':check_emergency
+subscription_dict = {
+	ada_topic:check_emergency
 }
 
 def connect_ada():
 	global ada, connected
-	ada = mqttClass.mqttClass(host_IP='io.adafruit.com',username=ada_user, key=ada_key, subscriptions = ada_topic)
+	ada = mqttClass.mqttClass(host_IP='io.adafruit.com',username=ada_user, key=ada_key, subscriptions = subscription_dict)
 	ada.connect()
 	ada.client.on_disconnect = reconnect_ada
 	connected = 1
