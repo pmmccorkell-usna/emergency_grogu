@@ -31,9 +31,8 @@ def emergency_shutoff(server):
 
 
 def kill_it_all():
+	global server1, server2
 	print('entered kill_it_all')
-	server1 = '192.168.5.8'
-	server2 = '10.60.5.236:8505'
 	if (not emergency_shutoff(server1)):
 		sleep(1)
 		emergency_shutoff(server2)
